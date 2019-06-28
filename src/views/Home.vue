@@ -14,7 +14,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      consignees: "Welcome to Vue.js!"
+      consignees: ""
     };
   },
   created: function() {

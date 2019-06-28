@@ -5,6 +5,8 @@ import About from "./views/About.vue";
 import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
+import Create from "./views/Shipments/Create.vue";
+
 
 Vue.use(Router);
 
@@ -34,6 +36,11 @@ export default new Router({
       path: "/logout",
       name: "logout",
       component: Logout
+    },
+    {
+      path: "/shipment/create",
+      name: "shipment-create",
+      component: Create
     }
   ]
 });
