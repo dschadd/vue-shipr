@@ -1,4 +1,5 @@
-// vue.config.js
 module.exports = {
-  // options...
+  devServer: {
+    proxy: 'http://localhost:4000' // Not sure this will actually work with an external API.
+  }
 };
