@@ -63,72 +63,76 @@ export default {
     };
   },
   created: function() {
-    function upsRateGetter() {
-      // Git ignore is not ignoring my API.env file. Needs to be fixed ASAP.
-      // Axios is not making the request for some reason. I assuming it is because of the formatting.
-      var upsHeaders = {
+    // Move this function into methods and then call method here
+
+    console.log("is this thing on");  
+
+    // Git ignore is not ignoring my API.env file. Needs to be fixed ASAP.
+    // Axios is not making the request for some reason. I assuming it is because of the formatting.
+    var upsHeaders = {
+      
+    };
+    var body = this.ups_body;
+    axios({
+      method: 'post', 
+      url: "https://wwwcie.ups.com/ship/v1801/rating/Shop",
+      headers: {
         "Username": "dschadd@gmail.com",
         "Password": "grens111*", 
         "AccessLicenseNumber": "9D6385C312E099B5"
-      };
-      var body = this.ups_body;
-      axios({
-        url: "https://wwwcie.ups.com/ship/v1801/rating/Shop",
-        method: 'post',
-        headers: upsHeaders,
-        data: {
-          "RateRequest": {
-            "Shipment": {
-              "Shipper": {
-                "Address": {
-                  "AddressLine": "569 Yarmouth Rd",
-                  "City": "Elk Grove Village",
-                  "StateProvinceCode": "IL",
-                  "PostalCode": "60007",
-                  "CountryCode": "US"
-                }
+      },
+      //  Data object needs to be outside of this function, but I am not sure if it is getting this from the Vue data so I have explicitly put it here.
+      data: {
+        "RateRequest": {
+          "Shipment": {
+            "Shipper": {
+              "Address": {
+                "AddressLine": "569 Yarmouth Rd",
+                "City": "Elk Grove Village",
+                "StateProvinceCode": "IL",
+                "PostalCode": "60007",
+                "CountryCode": "US"
+              }
+            },
+            "ShipTo": {
+              "Address":{
+                "AddressLine": "500 Dogwood Trl",
+                "City": "Elk Grove Village",
+                "StateProvinceCode": "IL",
+                "PostalCode": "60007",
+                "CountryCode": "US"
+              }
+            },
+            "Package": {
+              "PackagingType": {
+                "Code": "02"
               },
-              "ShipTo": {
-                "Address":{
-                  "AddressLine": "500 Dogwood Trl",
-                  "City": "Elk Grove Village",
-                  "StateProvinceCode": "IL",
-                  "PostalCode": "60007",
-                  "CountryCode": "US"
-                }
+              "Dimensions": {
+                "UnitOfMeasurement": {
+                  "Code": "IN"
+                },
+                "Length": "5",
+                "Width": "4",
+                "Height": "3"
               },
-              "Package": {
-                "PackagingType": {
-                  "Code": "02"
+              "PackageWeight": {
+                "UnitOfMeasurement": {
+                  "Code": "Lbs",
+                  "Description": "pounds"
                 },
-                "Dimensions": {
-                  "UnitOfMeasurement": {
-                    "Code": "IN"
-                  },
-                  "Length": "5",
-                  "Width": "4",
-                  "Height": "3"
-                },
-                "PackageWeight": {
-                  "UnitOfMeasurement": {
-                    "Code": "Lbs",
-                    "Description": "pounds"
-                  },
-                  "Weight": "1"
-                }
+                "Weight": "1"
               }
             }
           }
         }
-      }).then(function(response) {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
-      });
-    }
-    
+      }
+    }).then(function(response) {
+      console.log(response.data);
+      console.log(response.status);
+      console.log(response.statusText);
+      console.log(response.headers);
+      console.log(response.config);
+    });
   },
   methods: {},
   computed: {}
