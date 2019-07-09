@@ -1,9 +1,39 @@
 <template>
   <div class="shipment-create">
-    <h1>{{ ups_rate }}</h1>
+    <h1>{{ shipper_address }}</h1>
     <div class="form-group">
-      <label>Name:</label>
-      <input type="text" class="form-control" v-model="name" />
+      <label>Street Address:</label>
+      <input type="text" class="form-control" v-model="shipper_address.address_line" />
+    </div>
+    <div class="form-group">
+      <label>City:</label>
+      <input type="text" class="form-control" v-model="shipper_address.city" />
+    </div>
+    <div class="form-group">
+      <label>State:</label>
+      <input type="text" class="form-control" v-model="shipper_address.state_code" />
+    </div>
+    <div class="form-group">
+      <label>Country:</label>
+      <input type="text" class="form-control" v-model="shipper_address.country_code" />
+    </div>
+
+    <h1>{{ ship_to_address }}</h1>
+    <div class="form-group">
+      <label>Street Address:</label>
+      <input type="text" class="form-control" v-model="shipper_address.address_line" />
+    </div>
+    <div class="form-group">
+      <label>City:</label>
+      <input type="text" class="form-control" v-model="shipper_address.city" />
+    </div>
+    <div class="form-group">
+      <label>State:</label>
+      <input type="text" class="form-control" v-model="shipper_address.state_code" />
+    </div>
+    <div class="form-group">
+      <label>Country:</label>
+      <input type="text" class="form-control" v-model="shipper_address.country_code" />
     </div>
   </div>
 </template>
