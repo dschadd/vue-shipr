@@ -17,16 +17,16 @@
 
       <h1>{{ ship_to_address }}</h1>
       <div class="form-group">
-        <label>Street Address:</label> <input type="text" class="form-control" v-model="shipper_address.address_line" />
+        <label>Street Address:</label> <input type="text" class="form-control" v-model="ship_to_address.address_line" />
       </div>
       <div class="form-group">
-        <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
+        <label>City:</label> <input type="text" class="form-control" v-model="ship_to_address.city" />
       </div>
       <div class="form-group">
-        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
+        <label>State:</label> <input type="text" class="form-control" v-model="ship_to_address.state_code" />
       </div>
       <div class="form-group">
-        <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
+        <label>Country:</label> <input type="text" class="form-control" v-model="ship_to_address.country_code" />
       </div>
     </form>
   </div>
@@ -82,12 +82,17 @@ export default {
     console.log("is this thing on");
   },
   methods: {
+    // Possible to turn this into a separate service?
     getRate: function() {
       var params = {
         shipper_address: this.shipper_address,
         ship_to_address: this.ship_to_address
       };
-      axios.
+      axios.post("http://localhost:3000/api/rates", params).then(
+        function(response) {
+          console.log(response);
+        }.bind(this)
+      );
     }
   },
   computed: {}
