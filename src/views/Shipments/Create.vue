@@ -9,6 +9,9 @@
         <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
       </div>
       <div class="form-group">
+        <label>Postal Code:</label> <input type="text" class="form-control" v-model="shipper_address.postal_code" />
+      </div>
+      <div class="form-group">
         <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
       </div>
       <div class="form-group">
@@ -21,6 +24,9 @@
       </div>
       <div class="form-group">
         <label>City:</label> <input type="text" class="form-control" v-model="ship_to_address.city" />
+      </div>
+      <div class="form-group">
+        <label>Postal Code:</label> <input type="text" class="form-control" v-model="ship_to_address.postal_code" />
       </div>
       <div class="form-group">
         <label>State:</label> <input type="text" class="form-control" v-model="ship_to_address.state_code" />
