@@ -29,6 +29,8 @@
         <label>Country:</label> <input type="text" class="form-control" v-model="ship_to_address.country_code" />
       </div>
     </form>
+
+    <button v-on:click="getRate();" class="btn btn-primary">Create</button>
   </div>
 </template>
 
