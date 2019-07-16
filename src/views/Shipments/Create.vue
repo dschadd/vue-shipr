@@ -1,48 +1,40 @@
 <template>
   <div class="shipment-create">
-    <h1>{{ shipper_address }}</h1>
-    <div class="form-group">
-      <label>Street Address:</label>
-      <input type="text" class="form-control" v-model="shipper_address.address_line" />
-    </div>
-    <div class="form-group">
-      <label>City:</label>
-      <input type="text" class="form-control" v-model="shipper_address.city" />
-    </div>
-    <div class="form-group">
-      <label>State:</label>
-      <input type="text" class="form-control" v-model="shipper_address.state_code" />
-    </div>
-    <div class="form-group">
-      <label>Country:</label>
-      <input type="text" class="form-control" v-model="shipper_address.country_code" />
-    </div>
+    <form v-on:submit.prevent="submit();">
+      <h1>{{ shipper_address }}</h1>
+      <div class="form-group">
+        <label>Street Address:</label> <input type="text" class="form-control" v-model="shipper_address.address_line" />
+      </div>
+      <div class="form-group">
+        <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
+      </div>
+      <div class="form-group">
+        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
+      </div>
+      <div class="form-group">
+        <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
+      </div>
 
-    <h1>{{ ship_to_address }}</h1>
-    <div class="form-group">
-      <label>Street Address:</label>
-      <input type="text" class="form-control" v-model="shipper_address.address_line" />
-    </div>
-    <div class="form-group">
-      <label>City:</label>
-      <input type="text" class="form-control" v-model="shipper_address.city" />
-    </div>
-    <div class="form-group">
-      <label>State:</label>
-      <input type="text" class="form-control" v-model="shipper_address.state_code" />
-    </div>
-    <div class="form-group">
-      <label>Country:</label>
-      <input type="text" class="form-control" v-model="shipper_address.country_code" />
-    </div>
+      <h1>{{ ship_to_address }}</h1>
+      <div class="form-group">
+        <label>Street Address:</label> <input type="text" class="form-control" v-model="shipper_address.address_line" />
+      </div>
+      <div class="form-group">
+        <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
+      </div>
+      <div class="form-group">
+        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
+      </div>
+      <div class="form-group">
+        <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
+      </div>
+    </form>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
-
 import axios from "axios";
 
 export default {
@@ -62,8 +54,8 @@ export default {
         state_code: "",
         postal_code: "",
         country_code: ""
-      },
-      // This logic needs to be abstracted - it will live in the back end until I get 
+      }
+      // This logic needs to be abstracted - it will live in the back end until I get
       // a basic rate request working for different addresses.
       // "Package": {
       //   "PackagingType": {
@@ -87,11 +79,17 @@ export default {
     };
   },
   created: function() {
-
-    console.log("is this thing on");  
-
+    console.log("is this thing on");
   },
-  methods: {},
+  methods: {
+    getRate: function() {
+      var params = {
+        shipper_address: this.shipper_address,
+        ship_to_address: this.ship_to_address
+      };
+      axios.
+    }
+  },
   computed: {}
 };
 </script>
