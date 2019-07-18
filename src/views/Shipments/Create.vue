@@ -98,7 +98,8 @@ export default {
       };
       axios.post("http://localhost:3000/api/rates", params).then(
         function(response) {
-          console.log(response);
+          console.log(response.data);
+          this.ups_rate = response.data;
         }.bind(this)
       );
     }
