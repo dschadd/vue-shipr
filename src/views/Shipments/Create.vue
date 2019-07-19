@@ -1,5 +1,7 @@
 <template>
   <div class="shipment-create">
+    <h1>${{ ups_rate }}</h1>
+
     <form v-on:submit.prevent="submit();">
       <h1>{{ shipper_address }}</h1>
       <div class="form-group">
@@ -9,10 +11,10 @@
         <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
       </div>
       <div class="form-group">
-        <label>Postal Code:</label> <input type="text" class="form-control" v-model="shipper_address.postal_code" />
+        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
       </div>
       <div class="form-group">
-        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
+        <label>Postal Code:</label> <input type="text" class="form-control" v-model="shipper_address.postal_code" />
       </div>
       <div class="form-group">
         <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
@@ -26,10 +28,10 @@
         <label>City:</label> <input type="text" class="form-control" v-model="ship_to_address.city" />
       </div>
       <div class="form-group">
-        <label>Postal Code:</label> <input type="text" class="form-control" v-model="ship_to_address.postal_code" />
+        <label>State:</label> <input type="text" class="form-control" v-model="ship_to_address.state_code" />
       </div>
       <div class="form-group">
-        <label>State:</label> <input type="text" class="form-control" v-model="ship_to_address.state_code" />
+        <label>Postal Code:</label> <input type="text" class="form-control" v-model="ship_to_address.postal_code" />
       </div>
       <div class="form-group">
         <label>Country:</label> <input type="text" class="form-control" v-model="ship_to_address.country_code" />
@@ -98,8 +100,8 @@ export default {
       };
       axios.post("http://localhost:3000/api/rates", params).then(
         function(response) {
-          console.log(response.data);
-          this.ups_rate = response.data;
+          console.log(response.data.ups.RateResponse.RatedShipment[0].TotalCharges.MonetaryValue);
+          this.ups_rate = response.data.ups.RateResponse.RatedShipment[0].TotalCharges.MonetaryValue;
         }.bind(this)
       );
     }
