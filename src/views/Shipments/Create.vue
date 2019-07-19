@@ -3,7 +3,7 @@
     <h1>${{ ups_rate }}</h1>
 
     <form v-on:submit.prevent="submit();">
-      <h1>{{ shipper_address }}</h1>
+      <h1>Shipper Address</h1>
       <div class="form-group">
         <label>Street Address:</label> <input type="text" class="form-control" v-model="shipper_address.address_line" />
       </div>
@@ -20,7 +20,7 @@
         <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
       </div>
 
-      <h1>{{ ship_to_address }}</h1>
+      <h1>Ship To Address</h1>
       <div class="form-group">
         <label>Street Address:</label> <input type="text" class="form-control" v-model="ship_to_address.address_line" />
       </div>
@@ -35,6 +35,26 @@
       </div>
       <div class="form-group">
         <label>Country:</label> <input type="text" class="form-control" v-model="ship_to_address.country_code" />
+      </div>
+
+      <h1>Package Info</h1>
+      <div class="form-group">
+        <label>Weight</label> <input type="text" class="form-control" v-model="packageDimensions.weight" />
+      </div>
+      <div class="form-group">
+        <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.weightUOM" />
+      </div>
+      <div class="form-group">
+        <label>Length:</label> <input type="text" class="form-control" v-model="packageDimensions.length" />
+      </div>
+      <div class="form-group">
+        <label>Width:</label> <input type="text" class="form-control" v-model="packageDimensions.width" />
+      </div>
+      <div class="form-group">
+        <label>Height:</label> <input type="text" class="form-control" v-model="packageDimensions.height" />
+      </div>
+      <div class="form-group">
+        <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.dimsUOM" />
       </div>
     </form>
 
@@ -64,6 +84,14 @@ export default {
         state_code: "",
         postal_code: "",
         country_code: ""
+      },
+      packageDimensions: {
+        weight: "",
+        weightUOM: "",
+        length: "",
+        width: "",
+        height: "",
+        dimsUOM: ""
       }
       // This logic needs to be abstracted - it will live in the back end until I get
       // a basic rate request working for different addresses.
@@ -96,7 +124,8 @@ export default {
     getRate: function() {
       var params = {
         shipper_address: this.shipper_address,
-        ship_to_address: this.ship_to_address
+        ship_to_address: this.ship_to_address,
+        packageDimensions: this.packageDimensions
       };
       axios.post("http://localhost:3000/api/rates", params).then(
         function(response) {
