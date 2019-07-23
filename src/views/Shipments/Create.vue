@@ -5,41 +5,77 @@
     </b-container>
 
     <b-container class="get-rate-shipment-form">
-      <b-row align-v="start">
-        <form v-on:submit.prevent="submit();">
-          <h1>Shipper Address</h1>
-          <div class="form-group">
-            <label>Street Address:</label>
-            <input type="text" class="form-control" v-model="shipper_address.address_line" /> <label>City:</label>
-            <input type="text" class="form-control" v-model="shipper_address.city" /> <label>State:</label>
-            <input type="text" class="form-control" v-model="shipper_address.state_code" /> <label>Postal Code:</label>
-            <input type="text" class="form-control" v-model="shipper_address.postal_code" /> <label>Country:</label>
-            <input type="text" class="form-control" v-model="shipper_address.country_code" />
-          </div>
+      <form v-on:submit.prevent="submit();">
+        <h3 class="col-sm-4">Shipper Address</h3>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Street Address:</label>
+          <input type="text" class="form-control col-sm-4" v-model="shipper_address.address_line" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">City:</label>
+          <input type="text" class="form-control col-sm-4" v-model="shipper_address.city" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">State:</label>
+          <input type="text" class="form-control col-sm-4" v-model="shipper_address.state_code" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Postal Code:</label>
+          <input type="text" class="form-control col-sm-4" v-model="shipper_address.postal_code" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Country:</label>
+          <input type="text" class="form-control col-sm-4" v-model="shipper_address.country_code" />
+        </div>
 
-          <h1>Ship To Address</h1>
-          <div class="form-group">
-            <label>Street Address:</label>
-            <input type="text" class="form-control" v-model="ship_to_address.address_line" /> <label>City:</label>
-            <input type="text" class="form-control" v-model="ship_to_address.city" /> <label>State:</label>
-            <input type="text" class="form-control" v-model="ship_to_address.state_code" /> <label>Postal Code:</label>
-            <input type="text" class="form-control" v-model="ship_to_address.postal_code" /> <label>Country:</label>
-            <input type="text" class="form-control" v-model="ship_to_address.country_code" />
-          </div>
+        <h3 class="col-sm-4">Ship To Address</h3>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Street Address:</label>
+          <input type="text" class="form-control col-sm-4" v-model="ship_to_address.address_line" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">City:</label>
+          <input type="text" class="form-control col-sm-4" v-model="ship_to_address.city" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">State:</label>
+          <input type="text" class="form-control col-sm-4" v-model="ship_to_address.state_code" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Postal Code:</label>
+          <input type="text" class="form-control col-sm-4" v-model="ship_to_address.postal_code" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Country:</label>
+          <input type="text" class="form-control col-sm-4" v-model="ship_to_address.country_code" />
+        </div>
 
-          <div>
-            <h1>Package Info</h1>
-            <div class="form-group">
-              <label>Weight</label> <input type="text" class="form-control" v-model="packageDimensions.weight" />
-              <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.weightUOM" />
-              <label>Length:</label> <input type="text" class="form-control" v-model="packageDimensions.length" />
-              <label>Width:</label> <input type="text" class="form-control" v-model="packageDimensions.width" />
-              <label>Height:</label> <input type="text" class="form-control" v-model="packageDimensions.height" />
-              <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.dimsUOM" />
-            </div>
-          </div>
-        </form>
-      </b-row>
+        <h3 class="col-sm-4">Package Info</h3>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Weight</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.weight" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">UOM:</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.weightUOM" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Length:</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.length" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Width:</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.width" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Height:</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.height" />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">UOM:</label>
+          <input type="text" class="form-control col-sm-4" v-model="packageDimensions.dimsUOM" />
+        </div>
+      </form>
     </b-container>
     <button v-on:click="getRate();" class="btn btn-primary">Get Rate!</button>
   </div>
