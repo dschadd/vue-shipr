@@ -1,14 +1,10 @@
 <template>
-  <div class="home">
-    <h1>{{ consignees }}</h1>
-  </div>
+  <div class="home"></div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
-
 import axios from "axios";
 
 export default {

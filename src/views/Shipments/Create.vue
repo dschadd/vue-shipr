@@ -1,64 +1,47 @@
 <template>
   <div class="shipment-create">
-    <h1>${{ ups_rate }}</h1>
+    <b-container class="courier-rate">
+      <h1>UPS Rate: ${{ ups_rate }}</h1>
+    </b-container>
 
-    <form v-on:submit.prevent="submit();">
-      <h1>Shipper Address</h1>
-      <div class="form-group">
-        <label>Street Address:</label> <input type="text" class="form-control" v-model="shipper_address.address_line" />
-      </div>
-      <div class="form-group">
-        <label>City:</label> <input type="text" class="form-control" v-model="shipper_address.city" />
-      </div>
-      <div class="form-group">
-        <label>State:</label> <input type="text" class="form-control" v-model="shipper_address.state_code" />
-      </div>
-      <div class="form-group">
-        <label>Postal Code:</label> <input type="text" class="form-control" v-model="shipper_address.postal_code" />
-      </div>
-      <div class="form-group">
-        <label>Country:</label> <input type="text" class="form-control" v-model="shipper_address.country_code" />
-      </div>
+    <b-container class="get-rate-shipment-form">
+      <b-row align-v="start">
+        <form v-on:submit.prevent="submit();">
+          <h1>Shipper Address</h1>
+          <div class="form-group">
+            <label>Street Address:</label>
+            <input type="text" class="form-control" v-model="shipper_address.address_line" /> <label>City:</label>
+            <input type="text" class="form-control" v-model="shipper_address.city" /> <label>State:</label>
+            <input type="text" class="form-control" v-model="shipper_address.state_code" /> <label>Postal Code:</label>
+            <input type="text" class="form-control" v-model="shipper_address.postal_code" /> <label>Country:</label>
+            <input type="text" class="form-control" v-model="shipper_address.country_code" />
+          </div>
 
-      <h1>Ship To Address</h1>
-      <div class="form-group">
-        <label>Street Address:</label> <input type="text" class="form-control" v-model="ship_to_address.address_line" />
-      </div>
-      <div class="form-group">
-        <label>City:</label> <input type="text" class="form-control" v-model="ship_to_address.city" />
-      </div>
-      <div class="form-group">
-        <label>State:</label> <input type="text" class="form-control" v-model="ship_to_address.state_code" />
-      </div>
-      <div class="form-group">
-        <label>Postal Code:</label> <input type="text" class="form-control" v-model="ship_to_address.postal_code" />
-      </div>
-      <div class="form-group">
-        <label>Country:</label> <input type="text" class="form-control" v-model="ship_to_address.country_code" />
-      </div>
+          <h1>Ship To Address</h1>
+          <div class="form-group">
+            <label>Street Address:</label>
+            <input type="text" class="form-control" v-model="ship_to_address.address_line" /> <label>City:</label>
+            <input type="text" class="form-control" v-model="ship_to_address.city" /> <label>State:</label>
+            <input type="text" class="form-control" v-model="ship_to_address.state_code" /> <label>Postal Code:</label>
+            <input type="text" class="form-control" v-model="ship_to_address.postal_code" /> <label>Country:</label>
+            <input type="text" class="form-control" v-model="ship_to_address.country_code" />
+          </div>
 
-      <h1>Package Info</h1>
-      <div class="form-group">
-        <label>Weight</label> <input type="text" class="form-control" v-model="packageDimensions.weight" />
-      </div>
-      <div class="form-group">
-        <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.weightUOM" />
-      </div>
-      <div class="form-group">
-        <label>Length:</label> <input type="text" class="form-control" v-model="packageDimensions.length" />
-      </div>
-      <div class="form-group">
-        <label>Width:</label> <input type="text" class="form-control" v-model="packageDimensions.width" />
-      </div>
-      <div class="form-group">
-        <label>Height:</label> <input type="text" class="form-control" v-model="packageDimensions.height" />
-      </div>
-      <div class="form-group">
-        <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.dimsUOM" />
-      </div>
-    </form>
-
-    <button v-on:click="getRate();" class="btn btn-primary">Create</button>
+          <div>
+            <h1>Package Info</h1>
+            <div class="form-group">
+              <label>Weight</label> <input type="text" class="form-control" v-model="packageDimensions.weight" />
+              <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.weightUOM" />
+              <label>Length:</label> <input type="text" class="form-control" v-model="packageDimensions.length" />
+              <label>Width:</label> <input type="text" class="form-control" v-model="packageDimensions.width" />
+              <label>Height:</label> <input type="text" class="form-control" v-model="packageDimensions.height" />
+              <label>UOM:</label> <input type="text" class="form-control" v-model="packageDimensions.dimsUOM" />
+            </div>
+          </div>
+        </form>
+      </b-row>
+    </b-container>
+    <button v-on:click="getRate();" class="btn btn-primary">Get Rate!</button>
   </div>
 </template>
 
