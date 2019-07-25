@@ -1,12 +1,12 @@
 <template>
   <div class="shipment-create">
-    <b-container class="courier-rate">
-      <h1>UPS Rate: ${{ ups_rate }}</h1>
-    </b-container>
-
     <b-container class="get-rate-shipment-form">
       <form v-on:submit.prevent="submit();">
-        <h3 class="col-sm-4">Shipper Address</h3>
+        <b-row>
+          <h3 class="col-sm-4">Shipper Address</h3>
+          <h3 class="col-sm-8">UPS Rate: ${{ ups_rate }}</h3>
+        </b-row>
+
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Street Address:</label>
           <input type="text" class="form-control col-sm-2" v-model="shipper_address.address_line" />
