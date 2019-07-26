@@ -2,7 +2,7 @@
   <!-- Log in, sign up, log out logic only works properly after reload -->
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">shipr</b-navbar-brand>
+      <b-navbar-brand href="/#/dashboard">shipr</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
