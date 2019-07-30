@@ -4,8 +4,7 @@
       <form v-on:submit.prevent="submit();">
         <b-row>
           <h3 class="col-sm-4">Shipper Address</h3>
-          <!-- This needs to be changed to shipment post request function -->
-          <a v-on:click="getRate();" class="col-sm-8"
+          <a v-on:click="bookShipment();" class="col-sm-8"
             ><h3>UPS Rate: ${{ ups_rate }}</h3></a
           >
         </b-row>
@@ -134,6 +133,9 @@ export default {
           this.ups_rate = response.data.ups.RateResponse.RatedShipment[0].TotalCharges.MonetaryValue;
         }.bind(this)
       );
+    },
+    bookShipment: function() {
+      axios.post("");
     }
   },
   computed: {}
