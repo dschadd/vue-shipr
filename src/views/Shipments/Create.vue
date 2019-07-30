@@ -4,7 +4,10 @@
       <form v-on:submit.prevent="submit();">
         <b-row>
           <h3 class="col-sm-4">Shipper Address</h3>
-          <h3 class="col-sm-8">UPS Rate: ${{ ups_rate }}</h3>
+          <!-- This needs to be changed to shipment post request function -->
+          <a v-on:click="getRate();" class="col-sm-8"
+            ><h3>UPS Rate: ${{ ups_rate }}</h3></a
+          >
         </b-row>
 
         <div class="form-group row">
@@ -112,27 +115,6 @@ export default {
         height: "",
         dimsUOM: ""
       }
-      // This logic needs to be abstracted - it will live in the back end until I get
-      // a basic rate request working for different addresses.
-      // "Package": {
-      //   "PackagingType": {
-      //     "Code": "02"
-      //   },
-      //   "Dimensions": {
-      //     "UnitOfMeasurement": {
-      //       "Code": "IN"
-      //     },
-      //     "Length": "5",
-      //     "Width": "4",
-      //     "Height": "3"
-      //   },
-      //   "PackageWeight": {
-      //     "UnitOfMeasurement": {
-      //       "Code": "Lbs",
-      //       "Description": "pounds"
-      //     },
-      //     "Weight": "1"
-      //   }
     };
   },
   created: function() {
