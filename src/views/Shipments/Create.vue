@@ -135,7 +135,9 @@ export default {
       );
     },
     bookShipment: function() {
-      axios.post("");
+      axios.post("http://localhost:3000/api/shipments").then(function(response) {
+        console.log(response);
+      });
     }
   },
   computed: {}

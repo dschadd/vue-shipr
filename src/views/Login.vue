@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <img src="../../public/runningman_small.jpg" height="240" width="360" />
     <body class="text-center">
       <form class="form-signin" v-on:submit.prevent="submit();">
         <!--
