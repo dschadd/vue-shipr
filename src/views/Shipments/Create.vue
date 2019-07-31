@@ -1,3 +1,7 @@
+<!--
+  This page should be renamed to sometime about getting a rate.
+  I am also not sure about the file structure just yet.
+-->
 <template>
   <div class="shipment-create">
     <b-container class="get-rate-shipment-form">
