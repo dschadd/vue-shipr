@@ -139,8 +139,9 @@ export default {
       );
     },
     bookShipment: function() {
-      axios.post("http://localhost:3000/api/shipments").then(function(response) {
+      axios.post("http://localhost:3000/api/shipments").then(response => {
         console.log(response);
+        this.$router.push("/shipment/book");
       });
     }
   },

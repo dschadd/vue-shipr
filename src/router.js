@@ -8,12 +8,19 @@ import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
 import Create from "./views/Shipments/Create.vue";
+import Book from "./views/Shipments/Book.vue";
+
 
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: '/shipment/book',
+      name: 'book',
+      component: Book
+    },
     {
       path: '/dashboard',
       name: 'dashboard',
